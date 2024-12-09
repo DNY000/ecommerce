@@ -1,12 +1,13 @@
 import 'package:app1/bindings/general_bindings.dart';
-import 'package:app1/data/services/firebase_service/firebase_options.dart';
-import 'package:app1/routes/app_routes.dart';
-import 'package:app1/ultis/theme/theme_app.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:app1/data/services/firebase_service/firebase_options.dart'
+    show DefaultFirebaseOptions;
+import 'package:app1/routes/app_routes.dart' show AppRoutes;
+import 'package:app1/ultis/theme/theme_app.dart' show TAppTheme;
+import 'package:firebase_core/firebase_core.dart' show Firebase;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'features/authentication/screens/login/login.dart';
-import 'ultis/local_storage/storage_utilly.dart';
+import 'features/authentication/screens/login/login.dart' show LoginScreen;
+import 'ultis/local_storage/storage_utilly.dart' show TLocalStorage;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

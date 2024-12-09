@@ -38,8 +38,9 @@ android {
         release {
             // Use a separate signing config for release builds
             signingConfig = signingConfigs.debug
-            // minifyEnabled true // for code shrinking
-            // proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }

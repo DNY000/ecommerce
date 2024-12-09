@@ -79,6 +79,7 @@ class TImages {
   static const String banking = "assets/logos/banking.png";
   static const String vnpay = "assets/logos/vnpay.jpg";
   static const String visa = "assets/logos/visa.png";
+  static const String logoApp = "assets/logos/logoapp.jpg";
 //splash screen
   static const String onboarding = "assets/images/onboarding/onboarding.jpg";
   static const String onboarding1 = "assets/images/onboarding/onboarding1.jpg";
