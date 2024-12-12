@@ -73,7 +73,7 @@ class OrderController extends GetxController {
       await orderRepository.saveOrder(order, userId);
       await notificationController.saveNotification(NotificationModel(
         id: userId,
-        body: 'Đơn hàng của bạn đã được đặt thành công',
+        body: 'Đơn hàng ${order.id} của bạn đã được đặt thành công',
         title: 'Đơn hàng mới',
         type: NotificationType.order.name,
         createdAt: DateTime.now(),

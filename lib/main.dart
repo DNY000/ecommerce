@@ -6,6 +6,7 @@ import 'package:app1/ultis/theme/theme_app.dart' show TAppTheme;
 import 'package:firebase_core/firebase_core.dart' show Firebase;
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'features/authentication/screens/login/login.dart' show LoginScreen;
 import 'ultis/local_storage/storage_utilly.dart' show TLocalStorage;
@@ -19,6 +20,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
