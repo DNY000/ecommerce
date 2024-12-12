@@ -1,5 +1,5 @@
 // ignore: unused_import
-import 'package:app1/data/services/firebase_service/firebase_auth_service.dart';
+import 'package:app1/data/services/firebase_service/firebase_auth_service/firebase_auth_service.dart';
 import 'package:app1/features/authentication/controller/signin/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

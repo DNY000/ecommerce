@@ -86,7 +86,7 @@ class FormSignUp extends StatelessWidget {
               () => TextFormField(
                 controller: controller.password,
                 obscureText: controller.hintPassword.value,
-                validator: (value) => TValidation.validatePassword(value ?? ''),
+                validator: (value) => TValidation.validatePassword(value ?? ""),
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
                       onPressed: () => controller.hintPassword.value =

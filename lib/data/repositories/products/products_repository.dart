@@ -1,4 +1,4 @@
-import 'package:app1/data/services/firebase_service/firebase_storage_service.dart';
+import 'package:app1/data/services/firebase_service/firebase_storage_service/firebase_storage_service.dart';
 import 'package:app1/features/shop/models/product_model.dart';
 import 'package:app1/ultis/constants/enum.dart';
 import 'package:app1/ultis/exception/firebase_exception.dart';

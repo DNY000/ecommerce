@@ -61,6 +61,12 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   dio: ^5.7.0
   http_parser: ^4.0.2
+  firebase_messaging: ^15.1.6
+  http: ^1.2.2
+  googleapis_auth: ^1.6.0
+  flutter_local_notifications: ^18.0.1
+  flutter_easyloading: ^3.0.5
+  flutter_dotenv: ^5.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

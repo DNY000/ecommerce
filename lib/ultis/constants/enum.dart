@@ -12,4 +12,6 @@ enum PaymentMethods {
   momoPay
 }
 
+enum NotificationType { order, product, promotion, system }
+
 enum ProductType { single, variable }

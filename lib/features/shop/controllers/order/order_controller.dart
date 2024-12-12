@@ -7,12 +7,15 @@ import 'package:app1/features/shop/controllers/cart/cart_controller.dart';
 import 'package:app1/features/shop/controllers/checkout/checkout_controller.dart';
 import 'package:app1/features/shop/models/order_model.dart';
 import 'package:app1/ultis/constants/images_string.dart';
-import 'package:app1/ultis/navigator_menu.dart';
+import 'package:app1/features/shop/screens/navigator_menu/navigator_menu.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/widgets/success_screen/success_screen.dart';
+import '../../../../data/services/firebase_service/firebase_notifications_service/send_notification_service.dart';
 import '../../../../ultis/constants/enum.dart';
+import '../../../authentication/controller/notification/notification_controller.dart';
+import '../../models/notification_model.dart';
 
 class OrderController extends GetxController {
   static OrderController get intance => Get.find();
@@ -21,6 +24,8 @@ class OrderController extends GetxController {
   final AddressController addressController = Get.put(AddressController());
   final CheckoutController checkoutController = Get.put(CheckoutController());
   final OrderRepository orderRepository = Get.put(OrderRepository());
+  final NotificationController notificationController =
+      Get.put(NotificationController());
   Future<List<OrderModel>> fetchUserOrders() async {
     try {
       final orders = await orderRepository.fetchUserOrders();
@@ -66,7 +71,22 @@ class OrderController extends GetxController {
 
       // Save the order to Firestore
       await orderRepository.saveOrder(order, userId);
-
+      await notificationController.saveNotification(NotificationModel(
+        id: userId,
+        body: 'Đơn hàng của bạn đã được đặt thành công',
+        title: 'Đơn hàng mới',
+        type: NotificationType.order.name,
+        createdAt: DateTime.now(),
+        isRead: false,
+        data: order.toJson(),
+      ));
+      await SendNotificationService.sendNotification(
+        token:
+            "csfmhtHkTwKFMzh4P86-Xo:APA91bHPSkcx7U4k3xqn8TB_QZWKPGIJ-P5t1-7yjQ62N4gQl9QDErduIgFJZs0giX8JcjBlV-K6XZP3QazcnDNj94or1f3ee7J54xWlG5M20wxgL-SqiaM",
+        title: 'Đơn hàng mới',
+        body: order.status.name,
+        data: {'screen': '/notification'},
+      );
       // Update the cart status
       cartController.clearCart();
       Get.offAll(

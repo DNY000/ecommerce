@@ -1,15 +1,10 @@
-import 'package:app1/features/personalization/screens/settings/settings.dart';
-import 'package:app1/features/shop/models/brand_model.dart';
-import 'package:app1/features/shop/models/category_model.dart';
-import 'package:app1/features/shop/models/product_model.dart';
-import 'package:app1/features/shop/screens/home/home_screen.dart';
-import 'package:app1/features/shop/screens/store/store_screen.dart';
-import 'package:app1/features/shop/screens/wishlist/favourite_screen.dart';
 import 'package:app1/ultis/hepers/heper_function.dart';
 import 'package:app1/ultis/constants/tcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+
+import '../../controllers/navigator/navigator_controller.dart';
 
 class NavigatorMenu extends StatelessWidget {
   const NavigatorMenu({super.key});
@@ -46,18 +41,4 @@ class NavigatorMenu extends StatelessWidget {
           () => controller.listPage[controller.index.value],
         ));
   }
-}
-
-class NavigatorController extends GetxController {
-  final Rx<int> index = 0.obs;
-  final listPage = [
-    const HomeScreen(),
-    StoreScreen(
-      categoryModel: CategoryModel.empty(),
-      productModel: ProductModel.empty(),
-      brandModel: BrandModel.empty(),
-    ),
-    const Favouritescreen(),
-    const SettingsScreen()
-  ];
 }

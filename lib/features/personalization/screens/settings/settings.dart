@@ -7,11 +7,15 @@ import 'package:app1/features/personalization/screens/address/widgets/address.da
 import 'package:app1/features/shop/controllers/settings/setting_controller.dart';
 import 'package:app1/features/shop/screens/order/order.dart';
 import 'package:app1/ultis/constants/constants.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/repositories/authentication/authentication_repository.dart';
+import '../../../../data/services/firebase_service/firebase_notifications_service/notification_service.dart';
+import '../../../../data/services/firebase_service/firebase_notifications_service/send_notification_service.dart';
 import '../../../shop/controllers/products/product_controller.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -98,6 +102,43 @@ class SettingsScreen extends StatelessWidget {
                   subtile: 'Thêm sản phẩm tại đây',
                   onTap: () {
                     controller.addMultipleProducts();
+                  },
+                ),
+                const Divider(),
+                SettingListMenuItem(
+                  icon: FontAwesomeIcons.helmetSafety,
+                  title: 'Test notification',
+                  subtile: 'Test notification',
+                  onTap: () async {
+                    EasyLoading.show();
+                    try {
+                      RemoteMessage testMessage = RemoteMessage(
+                        notification: RemoteNotification(
+                          title: 'Test notification',
+                          body: 'Test notification content',
+                        ),
+                        data: {
+                          'screen': '/notification',
+                          'card': 'Test Card Info',
+                        },
+                      );
+
+                      // Gửi notification
+                      await SendNotificationService.sendNotification(
+                        token: "your-token-here",
+                        title: 'Test notification',
+                        body: 'Test notification',
+                        data: {'screen': '/notification'},
+                      );
+
+                      // Xử lý navigation
+                      // ignore: use_build_context_synchronously
+                      NotificationService().handleMessage(context, testMessage);
+                    } catch (e) {
+                      print('Error sending notification: $e');
+                    } finally {
+                      EasyLoading.dismiss();
+                    }
                   },
                 ),
                 const SizedBox(height: 30),

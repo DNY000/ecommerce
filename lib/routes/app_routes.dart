@@ -14,7 +14,10 @@ import 'package:app1/features/shop/screens/product_reviews/product_reviews_scree
 import 'package:app1/features/shop/screens/store/store_screen.dart';
 import 'package:app1/features/shop/screens/wishlist/favourite_screen.dart';
 import 'package:app1/routes/routes.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
+
+import '../features/shop/screens/notification/notification.dart';
 
 class AppRoutes {
   static final pages = [
@@ -69,6 +72,10 @@ class AppRoutes {
     GetPage(
       name: TRoutes.userProfile,
       page: () => const ProfileScreen(),
+    ),
+    GetPage(
+      name: TRoutes.notification,
+      page: () => const NotificationScreen(message: RemoteMessage()),
     ),
   ];
 }

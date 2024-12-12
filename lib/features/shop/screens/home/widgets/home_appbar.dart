@@ -18,6 +18,11 @@ class HomeAppBar extends StatelessWidget {
     return TAppBar(
       action: const [
         CartMenuItem(
+          iconColor: Color.fromRGBO(237, 240, 243, 1),
+          icon: Icons.notifications,
+          isNotification: true,
+        ),
+        CartMenuItem(
           iconColor: TColor.white,
         )
       ],

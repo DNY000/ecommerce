@@ -53,6 +53,7 @@ class UserController extends GetxController {
           phoneNumber: user.user!.phoneNumber ?? " ",
           profilePicture: user.user!.photoURL ?? '',
           email: user.user!.email ?? '',
+          token: user.user!.uid,
           //   address: [],
         );
         await userRepository.createUser(userModel);

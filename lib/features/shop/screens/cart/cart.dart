@@ -3,7 +3,7 @@ import 'package:app1/features/shop/screens/cart/widget/cart_item.dart';
 import 'package:app1/features/shop/screens/checkout/checkout.dart';
 import 'package:app1/ultis/constants/images_string.dart';
 import 'package:app1/common/widgets/loaders/animation_loader.dart';
-import 'package:app1/ultis/navigator_menu.dart';
+import 'package:app1/features/shop/screens/navigator_menu/navigator_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

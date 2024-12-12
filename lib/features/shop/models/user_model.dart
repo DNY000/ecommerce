@@ -12,6 +12,7 @@ class UserModel {
   String userName;
   String phoneNumber;
   String profilePicture;
+  String token;
   // List<AddressModel> address;
   UserModel({
     required this.id,
@@ -21,6 +22,7 @@ class UserModel {
     required this.userName,
     required this.phoneNumber,
     required this.profilePicture,
+    required this.token,
     // required this.address,
   });
   String get fullName => TFormatter.formatFullName(firstName, lastName);
@@ -46,6 +48,7 @@ class UserModel {
         userName: '',
         phoneNumber: '',
         profilePicture: '',
+        token: '',
         // address: [],
       );
   Map<String, dynamic> toJson() => {
@@ -56,6 +59,7 @@ class UserModel {
         'UserName': userName,
         'PhoneNumber': phoneNumber,
         'ProfilePicture': profilePicture,
+        'Token': token,
         //   'Address': address.map((addr) => addr.toJson()).toList(),
       };
   factory UserModel.fromSnapshot(DocumentSnapshot document) {
@@ -74,6 +78,7 @@ class UserModel {
       userName: data['UserName'] ?? '',
       phoneNumber: data['PhoneNumber'] ?? '',
       profilePicture: data['ProfilePicture'] ?? '',
+      token: data['Token'] ?? '',
       // address: addressList,
     );
   }
@@ -87,6 +92,7 @@ class UserModel {
     String? phoneNumber,
     String? profilePicture,
     List<AddressModel>? address,
+    String? token,
   }) {
     return UserModel(
       id: id ?? this.id,
@@ -96,6 +102,7 @@ class UserModel {
       email: email ?? this.email,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       profilePicture: profilePicture ?? this.profilePicture,
+      token: token ?? this.token,
       //  address: address ?? this.address,
     );
   }

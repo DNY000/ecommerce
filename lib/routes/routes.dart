@@ -16,4 +16,5 @@ class TRoutes {
   static const userAddress = "/userAddress";
   static const signUp = "/signUp";
   static const singIn = "/singIn";
+  static const notification = "/notification";
 }

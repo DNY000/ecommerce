@@ -12,7 +12,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../../features/authentication/screens/signup/widgets/very_email.dart';
 import '../../../ultis/exception/firebase_auth_exception.dart';
 import '../../../ultis/exception/firebase_exception.dart';
-import '../../../ultis/navigator_menu.dart';
+import '../../../features/shop/screens/navigator_menu/navigator_menu.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository instance = Get.find();
@@ -49,17 +49,18 @@ class AuthenticationRepository extends GetxController {
   }
 
   //register email and password
-  Future<UserCredential> registerEmailAndPassword(
-      String email, String password) async {
+  Future<UserCredential> registerEmailAndPassword(String email, String password,
+      {bool preventLoginRedirect = false}) async {
     try {
-      return await _auth.createUserWithEmailAndPassword(
+      final userCredential = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      return userCredential;
     } on FirebaseAuthException catch (e) {
       throw FirebaseAuthException(code: e.code, message: e.message);
     } on TPlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      throw Exception(e);
+      throw Exception('Lỗi không xác định: $e');
     }
   }
 

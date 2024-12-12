@@ -1,7 +1,7 @@
 import 'package:app1/common/widgets/snackbar/snackbar.dart';
 import 'package:app1/ultis/exception/firebase_exception.dart';
 import 'package:app1/ultis/exception/platform_exception.dart';
-import 'package:app1/ultis/navigator_menu.dart';
+import 'package:app1/features/shop/screens/navigator_menu/navigator_menu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

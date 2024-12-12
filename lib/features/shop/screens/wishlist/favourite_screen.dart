@@ -3,7 +3,7 @@ import 'package:app1/common/widgets/icons/t_circular_icon.dart';
 import 'package:app1/common/widgets/layout/t_gird_product.dart';
 import 'package:app1/common/widgets/products/product_cart/custom_list_cart.dart';
 import 'package:app1/ultis/constants/constants.dart';
-import 'package:app1/ultis/navigator_menu.dart';
+import 'package:app1/features/shop/screens/navigator_menu/navigator_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';

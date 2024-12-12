@@ -9,7 +9,7 @@ import '../../../../data/repositories/authentication/authentication_repository.d
 import '../../../../ultis/constants/images_string.dart';
 import '../../../../ultis/exception/firebase_exception.dart';
 import '../../../../ultis/exception/platform_exception.dart';
-import '../../../../ultis/navigator_menu.dart';
+import '../../../shop/screens/navigator_menu/navigator_menu.dart';
 import '../../../../common/widgets/poppup/full_screen_loader.dart';
 import '../network/network_manager.dart';
 import '../user/user_controller.dart';
