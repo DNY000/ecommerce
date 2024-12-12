@@ -8,6 +8,7 @@ class SendNotificationService {
   static Future<void> sendNotification(
       {required String? token,
       required String? title,
+      bool allUser = false,
       required String? body,
       required Map<String, dynamic>? data}) async {
     String serverKey = await GetServiceKey().getServiceKeyToken();
@@ -19,7 +20,8 @@ class SendNotificationService {
     };
     Map<String, dynamic> message = {
       'message': {
-        'token': token,
+        'topic': allUser ? "all" : null,
+        'token': allUser ? null : token,
         'notification': {'body': body, 'title': title},
         'data': data,
       }

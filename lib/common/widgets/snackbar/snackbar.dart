@@ -14,7 +14,7 @@ class TSnackBar {
       title,
       message,
       snackPosition: SnackPosition.TOP,
-      backgroundColor: Colors.green.withOpacity(0.1),
+      backgroundColor: Colors.green.withOpacity(0.2),
       colorText: Colors.green,
       duration: duration ?? const Duration(seconds: 3),
       margin: const EdgeInsets.all(10),

@@ -105,42 +105,42 @@ class SettingsScreen extends StatelessWidget {
                   },
                 ),
                 const Divider(),
-                SettingListMenuItem(
-                  icon: FontAwesomeIcons.helmetSafety,
-                  title: 'Test notification',
-                  subtile: 'Test notification',
-                  onTap: () async {
-                    EasyLoading.show();
-                    try {
-                      RemoteMessage testMessage = RemoteMessage(
-                        notification: RemoteNotification(
-                          title: 'Test notification',
-                          body: 'Test notification content',
-                        ),
-                        data: {
-                          'screen': '/notification',
-                          'card': 'Test Card Info',
-                        },
-                      );
+                // SettingListMenuItem(
+                //   icon: FontAwesomeIcons.helmetSafety,
+                //   title: 'Test notification',
+                //   subtile: 'Test notification',
+                //   onTap: () async {
+                //     EasyLoading.show();
+                //     try {
+                //       RemoteMessage testMessage = RemoteMessage(
+                //         notification: RemoteNotification(
+                //           title: 'Test notification',
+                //           body: 'Test notification content',
+                //         ),
+                //         data: {
+                //           'screen': '/notification',
+                //           'card': 'Test Card Info',
+                //         },
+                //       );
 
-                      // Gửi notification
-                      await SendNotificationService.sendNotification(
-                        token: "your-token-here",
-                        title: 'Test notification',
-                        body: 'Test notification',
-                        data: {'screen': '/notification'},
-                      );
+                //       // Gửi notification
+                //       await SendNotificationService.sendNotification(
+                //         token: "your-token-here",
+                //         title: 'Test notification',
+                //         body: 'Test notification',
+                //         data: {'screen': '/notification'},
+                //       );
 
-                      // Xử lý navigation
-                      // ignore: use_build_context_synchronously
-                      NotificationService().handleMessage(context, testMessage);
-                    } catch (e) {
-                      print('Error sending notification: $e');
-                    } finally {
-                      EasyLoading.dismiss();
-                    }
-                  },
-                ),
+                //       // Xử lý navigation
+                //       // ignore: use_build_context_synchronously
+                //       NotificationService().handleMessage(context, testMessage);
+                //     } catch (e) {
+                //       print('Error sending notification: $e');
+                //     } finally {
+                //       EasyLoading.dismiss();
+                //     }
+                //   },
+                // ),
                 const SizedBox(height: 30),
                 SizedBox(
                   width: 100,

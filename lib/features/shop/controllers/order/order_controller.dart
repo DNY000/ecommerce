@@ -81,9 +81,9 @@ class OrderController extends GetxController {
         data: order.toJson(),
       ));
       await SendNotificationService.sendNotification(
-        token:
-            "csfmhtHkTwKFMzh4P86-Xo:APA91bHPSkcx7U4k3xqn8TB_QZWKPGIJ-P5t1-7yjQ62N4gQl9QDErduIgFJZs0giX8JcjBlV-K6XZP3QazcnDNj94or1f3ee7J54xWlG5M20wxgL-SqiaM",
+        token: "",
         title: 'Đơn hàng mới',
+        allUser: true,
         body: order.status.name,
         data: {'screen': '/notification'},
       );

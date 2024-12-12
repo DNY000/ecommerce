@@ -2,6 +2,7 @@ import 'package:app1/features/authentication/controller/network/network_manager.
 import 'package:app1/features/authentication/screens/login/login.dart';
 import 'package:app1/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:app1/ultis/exception/platform_exception.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -13,6 +14,7 @@ import '../../../features/authentication/screens/signup/widgets/very_email.dart'
 import '../../../ultis/exception/firebase_auth_exception.dart';
 import '../../../ultis/exception/firebase_exception.dart';
 import '../../../features/shop/screens/navigator_menu/navigator_menu.dart';
+import '../../services/encrytion_service/encryption_service.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository instance = Get.find();
@@ -52,8 +54,16 @@ class AuthenticationRepository extends GetxController {
   Future<UserCredential> registerEmailAndPassword(String email, String password,
       {bool preventLoginRedirect = false}) async {
     try {
+      // final encryptedPassword = EncryptionService.encryptData(password);
       final userCredential = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      // await FirebaseFirestore.instance
+      //     .collection('users')
+      //     .doc(userCredential.user?.uid)
+      //     .set({
+      //   'email': email,
+      //   'password': encryptedPassword,
+      // });
       return userCredential;
     } on FirebaseAuthException catch (e) {
       throw FirebaseAuthException(code: e.code, message: e.message);
@@ -75,6 +85,19 @@ class AuthenticationRepository extends GetxController {
   Future<UserCredential> signInEmailWithPassword(
       String email, String password) async {
     try {
+      // lấy thoogn tin user trong firestore
+      // final userDoc = await FirebaseFirestore.instance
+      //     .collection('users')
+      //     .where('email', isEqualTo: email)
+      //     .get();
+
+      // final hashedPassword = userDoc.docs.first.get('password');
+      // final isPasswordCorrect =
+      //     EncryptionService.verifyData(password, hashedPassword);
+      // if (!isPasswordCorrect) {
+      //   throw Exception('Mật khẩu không đúng');
+      // }
+
       return await _auth.signInWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {

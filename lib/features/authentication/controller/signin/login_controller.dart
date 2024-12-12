@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../../common/widgets/loaders/loader.dart';
 import '../../../../common/widgets/snackbar/snackbar.dart';
 import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../ultis/constants/images_string.dart';
@@ -129,18 +130,14 @@ class LoginController extends GetxController {
 
       // 8. Chuyển hướng
       Get.offAll(() => const NavigatorMenu());
-    } catch (e) {
-      // Đảm bảo đóng loading dialog
+    } on FirebaseAuthException catch (e) {
+      TLoader.showCustomToast(message: 'Lôi đăng nhập vui lòng thử lại');
+      throw "Lỗi đăng nhập: ${TFirebaseException(e.code).message}";
+    } on PlatformException catch (e) {
+      TLoader.showCustomToast(message: 'Lôi đăng nhập vui lòng thử lại');
+      throw "Lỗi đăng nhập: ${TPlatformException(e.code).message}";
+    } finally {
       TFullScreenLoader.closeLoadingDialog();
-
-      // Log lỗi
-      //  print('Google Sign In Error: $e');
-
-      // Hiển thị thông báo lỗi người dùng
-      TSnackBar.showErrorSnackBar(
-        title: 'Lỗi đăng nhập',
-        message: e.toString(),
-      );
     }
   }
 

@@ -5,29 +5,29 @@ class TPlatformException implements Exception {
   String get message {
     switch (code) {
       case 'sign_in_canceled':
-        return 'Sign-in was canceled by the user.';
+        return 'Đăng nhập bị hủy bỏ bởi người dùng.';
       case 'sign_in_required':
-        return 'Sign-in is required to complete this operation.';
+        return 'Đăng nhập là bắt buộc để hoàn thành thao tác này.';
       case 'invalid-argument':
         return 'An invalid argument was provided. Please check your input.';
       case 'permission-denied':
-        return 'Permission denied. You do not have access to this resource.';
+        return 'Không có quyền truy cập. Bạn không có quyền truy cập vào tài nguyên này.';
       case 'timeout':
-        return 'The request timed out. Please try again later.';
+        return 'Yêu cầu không được thực hiện. Vui lòng thử lại sau.';
       case 'failed-precondition':
         return 'Operation failed due to an unmet precondition.';
       case 'not-found':
-        return 'The requested resource was not found.';
+        return 'Tài nguyên được yêu cầu không được tìm thấy.';
       case 'unauthenticated':
-        return 'Authentication required. Please sign in and try again.';
+        return 'Cần đăng nhập. Vui lòng đăng nhập và thử lại.';
       case 'unavailable':
-        return 'The service is currently unavailable. Please try again later.';
+        return 'Dịch vụ hiện không khả dụng. Vui lòng thử lại sau.';
       case 'already-exists':
         return 'The resource already exists.';
       case 'data-loss':
-        return 'Data loss detected. Please contact support.';
+        return 'Mất dữ liệu. Vui lòng liên hệ hỗ trợ.';
       default:
-        return 'An unexpected platform error occurred. Please try again.';
+        return 'Lỗi không xác định. Vui lòng thử lại.';
     }
   }
 }

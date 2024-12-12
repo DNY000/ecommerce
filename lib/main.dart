@@ -26,6 +26,7 @@ void main() async {
 
   final notificationService = NotificationService();
   notificationService.requestPermission();
+  FirebaseMessaging.instance.subscribeToTopic("all");
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {

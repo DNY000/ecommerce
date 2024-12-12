@@ -5,33 +5,33 @@ class TFirebaseException implements Exception {
   String get message {
     switch (code) {
       case 'unknown':
-        return 'An unknown Firebase error occurred. Please try again.';
+        return 'Lỗi không xác định. Vui lòng thử lại.';
       case 'network-request-failed':
-        return 'Network error. Please check your internet connection and try again.';
+        return 'Lỗi mạng. Vui lòng kiểm tra kết nối internet và thử lại.';
       case 'user-not-found':
         return 'No user found with the provided credentials.';
       case 'wrong-password':
-        return 'The password is incorrect. Please try again.';
+        return 'Mật khẩu không đúng. Vui lòng thử lại.';
       case 'email-already-in-use':
-        return 'This email address is already in use by another account.';
+        return 'Email đã được sử dụng bởi tài khoản khác.';
       case 'invalid-email':
         return 'The email address is invalid. Please enter a valid email address.';
       case 'operation-not-allowed':
-        return 'This operation is not allowed. Please contact support.';
+        return 'Thao tác không được phép. Vui lòng liên hệ hỗ trợ.';
       case 'weak-password':
-        return 'The password is too weak. Please use a stronger password.';
+        return 'Mật khẩu quá yếu. Vui lòng sử dụng mật khẩu mạnh hơn.';
       case 'too-many-requests':
-        return 'Too many attempts. Please try again later.';
+        return 'Quá nhiều lần thử. Vui lòng thử lại sau.';
       case 'account-exists-with-different-credential':
         return 'An account already exists with a different credential.';
       case 'user-disabled':
-        return 'This user account has been disabled. Please contact support.';
+        return 'Tài khoản người dùng đã bị vô hiệu hóa. Vui lòng liên hệ hỗ trợ.';
       case 'invalid-verification-code':
-        return 'The verification code is invalid. Please try again.';
+        return 'Mã xác minh không đúng. Vui lòng thử lại.';
       case 'invalid-verification-id':
-        return 'The verification ID is invalid. Please try again.';
+        return 'Mã xác minh không đúng. Vui lòng thử lại.';
       default:
-        return 'An unexpected error occurred. Please try again.';
+        return 'Lỗi không xác định. Vui lòng thử lại.';
     }
   }
 }
